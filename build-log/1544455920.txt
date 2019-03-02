@@ -1,0 +1,105 @@
+HEAD is now at f0b4950 Accept Merge Request #31: (patch-1 -> server)
+From git.dev.tencent.com:whllhw/ims
+   f0b4950..f4e9fea  server     -> origin/server
+   a1cfd6d..3a33ef8  master     -> origin/master
+Updating f0b4950..f4e9fea
+Fast-forward
+ Jenkinsfile                                        |  43 +++++
+ .../controller/ClassManageController.java          | 101 ----------
+ .../classManage/entity/ClassDetailInfoEntity.java  | 155 ---------------
+ .../ims/classManage/form/ClassManageEditForm.java  |  33 ----
+ .../classManage/service/ClassManageService.java    | 213 ---------------------
+ .../clazz/controller/ClassManageController.java    | 125 ++++++++++++
+ .../ims/clazz/entity/ClassDetailInfoEntity.java    |  49 +++++
+ .../com/ims/clazz/form/ClassManageEditForm.java    |  13 ++
+ .../repository/ClassDetailInfoRepository.java      |   7 +-
+ .../com/ims/clazz/service/ClassManageService.java  | 148 ++++++++++++++
+ .../com/ims/common/entity/ClassInfoEntity.java     |  95 ++-------
+ .../ims/common/repository/ClassInfoRepository.java |   5 +-
+ .../java/com/ims/common/service/TargetService.java |   8 +-
+ .../ims/compre/controller/CompreController.java    |   2 +-
+ .../java/com/ims/exception/ExceptionHandle.java    |  40 +++-
+ .../java/com/ims/exception/ProcessException.java   |  12 ++
+ src/main/java/com/ims/exception/RoleException.java |   9 +-
+ .../feedback/controller/FeedbackController.java    |   4 +
+ .../com/ims/feedback/entity/FeedbackEntity.java    |  37 ++++
+ .../controller/ScholarShipController.java          |   2 +-
+ src/main/java/com/ims/form/CommonResponseForm.java |   4 +
+ .../ims/importdata/service/WriteDataService.java   |   4 +-
+ .../taskexecutor/ImportTaskExecutor.java           |   2 +-
+ .../java/com/ims/leave/service/LeaveService.java   |  15 +-
+ .../com/ims/qiniu/service/QiniuFileService.java    |   2 +-
+ .../controller/LoginAndVerifyController.java       |  14 +-
+ .../security/repository/UserRoleRepository.java    |   3 +-
+ .../ims/security/util/LoginVerificationCode.java   |  72 +++----
+ .../student/controller/InfoPandectController.java  |   8 +
+ .../com/ims/student/service/StudentService.java    |  35 +++-
+ src/main/resources/application.example.yml         |  12 +-
+ src/main/resources/static/index.html               |  74 -------
+ 32 files changed, 594 insertions(+), 752 deletions(-)
+ create mode 100644 Jenkinsfile
+ delete mode 100644 src/main/java/com/ims/classManage/controller/ClassManageController.java
+ delete mode 100644 src/main/java/com/ims/classManage/entity/ClassDetailInfoEntity.java
+ delete mode 100644 src/main/java/com/ims/classManage/form/ClassManageEditForm.java
+ delete mode 100644 src/main/java/com/ims/classManage/service/ClassManageService.java
+ create mode 100644 src/main/java/com/ims/clazz/controller/ClassManageController.java
+ create mode 100644 src/main/java/com/ims/clazz/entity/ClassDetailInfoEntity.java
+ create mode 100644 src/main/java/com/ims/clazz/form/ClassManageEditForm.java
+ rename src/main/java/com/ims/{classManage => clazz}/repository/ClassDetailInfoRepository.java (89%)
+ create mode 100644 src/main/java/com/ims/clazz/service/ClassManageService.java
+ create mode 100644 src/main/java/com/ims/exception/ProcessException.java
+ create mode 100644 src/main/java/com/ims/feedback/controller/FeedbackController.java
+ create mode 100644 src/main/java/com/ims/feedback/entity/FeedbackEntity.java
+ delete mode 100644 src/main/resources/static/index.html
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com:ims:jar:1.0.0-SNAPSHOT
+[WARNING] 'dependencies.dependency.systemPath' for com.fundebug:fundebug:jar should not point at files within the project directory, ${project.basedir}/lib/fundebug.0.1.0.min.jar will be unresolvable by dependent projects @ line 152, column 25
+[WARNING] 'dependencies.dependency.systemPath' for org.json:json:jar should not point at files within the project directory, ${project.basedir}/lib/org.json.jar will be unresolvable by dependent projects @ line 160, column 25
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] 
+[INFO] ------------------------------< com:ims >-------------------------------
+[INFO] Building ims 1.0.0-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:3.0.0:clean (default-clean) @ ims ---
+[INFO] Deleting /home/caddy/ims/target
+[INFO] 
+[INFO] --- maven-resources-plugin:3.0.2:resources (default-resources) @ ims ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 2 resources
+[INFO] Copying 6 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.7.0:compile (default-compile) @ ims ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 332 source files to /home/caddy/ims/target/classes
+[INFO] /home/caddy/ims/src/main/java/com/ims/award/controller/ExtraResearchController.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/caddy/ims/src/main/java/com/ims/award/controller/ExtraResearchController.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-resources-plugin:3.0.2:testResources (default-testResources) @ ims ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/caddy/ims/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.7.0:testCompile (default-testCompile) @ ims ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /home/caddy/ims/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.21.0:test (default-test) @ ims ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:3.0.2:jar (default-jar) @ ims ---
+[INFO] Building jar: /home/caddy/ims/target/ims-1.0.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- spring-boot-maven-plugin:2.0.4.RELEASE:repackage (default) @ ims ---
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 15.511 s
+[INFO] Finished at: 2018-12-10T23:32:21+08:00
+[INFO] ------------------------------------------------------------------------
+[0;32mStopped [1641][0m
+[0;32mStarted [9697][0m

@@ -1,0 +1,66 @@
+HEAD is now at 0924fd6 /stugradeoption返回参数修改
+From git.dev.tencent.com:whllhw/ims
+   0924fd6..89ccce8  server     -> origin/server
+   cb73cc1..790bae0  aop        -> origin/aop
+   3a33ef8..4348ad2  master     -> origin/master
+Updating 0924fd6..89ccce8
+Fast-forward
+ src/main/resources/image/216041.png   | Bin 0 -> 7188 bytes
+ src/main/resources/image/31160224.png | Bin 0 -> 23753 bytes
+ src/main/resources/image/31180168.png | Bin 0 -> 25683 bytes
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 src/main/resources/image/216041.png
+ create mode 100644 src/main/resources/image/31160224.png
+ create mode 100644 src/main/resources/image/31180168.png
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com:ims:jar:1.0.0-SNAPSHOT
+[WARNING] 'dependencies.dependency.systemPath' for com.fundebug:fundebug:jar should not point at files within the project directory, ${project.basedir}/lib/fundebug.0.1.0.min.jar will be unresolvable by dependent projects @ line 152, column 25
+[WARNING] 'dependencies.dependency.systemPath' for org.json:json:jar should not point at files within the project directory, ${project.basedir}/lib/org.json.jar will be unresolvable by dependent projects @ line 160, column 25
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] 
+[INFO] ------------------------------< com:ims >-------------------------------
+[INFO] Building ims 1.0.0-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:3.0.0:clean (default-clean) @ ims ---
+[INFO] Deleting /home/caddy/ims/target
+[INFO] 
+[INFO] --- maven-resources-plugin:3.0.2:resources (default-resources) @ ims ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 2 resources
+[INFO] Copying 10 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.7.0:compile (default-compile) @ ims ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 332 source files to /home/caddy/ims/target/classes
+[INFO] /home/caddy/ims/src/main/java/com/ims/award/controller/ExtraResearchController.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/caddy/ims/src/main/java/com/ims/award/controller/ExtraResearchController.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-resources-plugin:3.0.2:testResources (default-testResources) @ ims ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/caddy/ims/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.7.0:testCompile (default-testCompile) @ ims ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /home/caddy/ims/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.21.0:test (default-test) @ ims ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:3.0.2:jar (default-jar) @ ims ---
+[INFO] Building jar: /home/caddy/ims/target/ims-1.0.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- spring-boot-maven-plugin:2.0.4.RELEASE:repackage (default) @ ims ---
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 12.458 s
+[INFO] Finished at: 2018-12-14T12:24:52+08:00
+[INFO] ------------------------------------------------------------------------
+[0;32mStopped [15082][0m
+[0;32mStarted [18021][0m

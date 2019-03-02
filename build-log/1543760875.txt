@@ -1,0 +1,70 @@
+HEAD is now at 3c51eea Fix: 验证码修复
+../build-docker.sh: line 6: [: ==: unary operator expected
+Your configuration specifies to merge with the ref 'refs/heads/ver_code'
+from the remote, but no such ref was fetched.
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com:ims:jar:1.0.0-SNAPSHOT
+[WARNING] 'dependencies.dependency.systemPath' for com.fundebug:fundebug:jar should not point at files within the project directory, ${project.basedir}/lib/fundebug.0.1.0.min.jar will be unresolvable by dependent projects @ line 152, column 25
+[WARNING] 'dependencies.dependency.systemPath' for org.json:json:jar should not point at files within the project directory, ${project.basedir}/lib/org.json.jar will be unresolvable by dependent projects @ line 160, column 25
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] 
+[INFO] ------------------------------< com:ims >-------------------------------
+[INFO] Building ims 1.0.0-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:3.0.0:clean (default-clean) @ ims ---
+[INFO] Deleting /home/caddy/ims-test/target
+[INFO] 
+[INFO] --- maven-resources-plugin:3.0.2:resources (default-resources) @ ims ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 2 resources
+[INFO] Copying 6 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.7.0:compile (default-compile) @ ims ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 329 source files to /home/caddy/ims-test/target/classes
+[INFO] /home/caddy/ims-test/src/main/java/com/ims/config/CorsConfig.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/caddy/ims-test/src/main/java/com/ims/config/CorsConfig.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-resources-plugin:3.0.2:testResources (default-testResources) @ ims ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/caddy/ims-test/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.7.0:testCompile (default-testCompile) @ ims ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /home/caddy/ims-test/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.21.0:test (default-test) @ ims ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:3.0.2:jar (default-jar) @ ims ---
+[INFO] Building jar: /home/caddy/ims-test/target/ims-1.0.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- spring-boot-maven-plugin:2.0.4.RELEASE:repackage (default) @ ims ---
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 12.526 s
+[INFO] Finished at: 2018-12-02T22:28:10+08:00
+[INFO] ------------------------------------------------------------------------
+ims-test
+Sending build context to Docker daemon  81.98MB
+Step 1/4 : FROM openjdk:8u181-jre-alpine3.8
+ ---> 2e01f547f003
+Step 2/4 : RUN  echo 'http://mirrors.ustc.edu.cn/alpine/v3.5/main' > /etc/apk/repositories     && echo 'http://mirrors.ustc.edu.cn/alpine/v3.5/community' >>/etc/apk/repositories && apk update && apk add --no-cache tzdata && apk add --update --no-cache ttf-dejavu && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && echo "Asia/Shanghai" > /etc/timezone
+ ---> Using cache
+ ---> b457ba470736
+Step 3/4 : COPY ims-1.0.0-SNAPSHOT.jar /
+ ---> 7aa8b3948f78
+Step 4/4 : CMD ["java","-Djava.security.egd=file:/dev/./urandom","-jar", "ims-1.0.0-SNAPSHOT.jar"]
+ ---> Running in 31041314d4ef
+Removing intermediate container 31041314d4ef
+ ---> 09d3328e8a48
+Successfully built 09d3328e8a48
+Successfully tagged ims-test:latest
+ee99d9f3b80c3da1d0acb77692915483d82766cee6cef5045f554acf036bac41
